@@ -1,0 +1,27 @@
+{
+  "name": "hash-reader",
+  "version": "1.0.0",
+  "description": "javascript module for reading proprietary hash index files (Pavel Novotny hash index)",
+  "main": ".lib/hash-reader.js",
+  "scripts": {
+    "test": "mocha test/test-hash-reader"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavelNovotny/hash-reader.git"
+  },
+  "keywords": [
+    "HashSeek",
+    "hash-reader",
+    "bgz-reader"
+  ],
+  "author": "Pavel Novotny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PavelNovotny/hash-reader/issues"
+  },
+  "homepage": "https://github.com/PavelNovotny/hash-reader#readme",
+  "dependencies": {
+    "bgz-reader": "git+https://github.com/PavelNovotny/bgz-reader.git"
+  }
+}
