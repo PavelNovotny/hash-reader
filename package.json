@@ -2,7 +2,7 @@
   "name": "hash-reader",
   "version": "1.0.0",
   "description": "javascript module for reading proprietary hash index files (Pavel Novotny hash index)",
-  "main": ".lib/hash-reader.js",
+  "main": "./lib/hash-reader.js",
   "scripts": {
     "test": "mocha test/test-hash-reader"
   },
