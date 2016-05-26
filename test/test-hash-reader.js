@@ -7,8 +7,16 @@ var hashReader = require("../lib/hash-reader.js");
 var bunyan = require('bunyan');
 var log = bunyan.createLogger({name: "testHashReader"});
 log.level("info");
-var testFile ="../hashSeek/hashSeekFiles/jms_s1_alsb_aspect.audit.20150425.bgz";
-var hashFile = testFile + ".hash_v1.bgz";
+var testFile ={
+    dataFile :{
+        bgzFile: "../hashSeek/hashSeekFiles/jms_s1_alsb_aspect.audit.20150425.bgz",
+        bgzIndexFile: "../hashSeek/hashSeekFiles/hash/jms_s1_alsb_aspect.audit.20150425.bgz.ind"
+    },
+    hashFile :{
+        bgzFile: "../hashSeek/hashSeekFiles/hash/jms_s1_alsb_aspect.audit.20150425.bgz.hash_v1.bgz",
+        bgzIndexFile: "../hashSeek/hashSeekFiles/hash/jms_s1_alsb_aspect.audit.20150425.bgz.hash_v1.bgz.ind"
+    }
+};
 
 describe('pokusyHashFile', function() {
     //describe('#testParallelRead()', function() {
@@ -24,7 +32,7 @@ describe('pokusyHashFile', function() {
     //});
     describe('#seek()', function() {
         it('should return positions for seekedString(s)', function(done) {
-            hashReader.seek("1-8DJP-3597-1429974338532-1316066106",testFile, hashFile, 10,function(err, result) {
+            hashReader.seek("1-8DJP-3597-1429974338532-1316066106",testFile, 10,function(err, result) {
                 if (err) {
                     log.error(err);
                     return done();
@@ -37,7 +45,7 @@ describe('pokusyHashFile', function() {
     });
     describe('#seek()', function() {
         it('should not return positions for seekedString(s)', function(done) {
-            hashReader.seek("1-P-3CCCCCCCCCCCCCC597-1429974338532-1316066106",testFile, hashFile, 10,function(err, result) {
+            hashReader.seek("1-P-3CCCCCCCCCCCCCC597-1429974338532-1316066106",testFile, 10,function(err, result) {
                 if (err) {
                     log.error(err);
                     return done();
@@ -50,7 +58,7 @@ describe('pokusyHashFile', function() {
     });
     describe('#seek()', function() {
         it('should be extremely quick (cached)', function(done) {
-            hashReader.seek("1-8DJP-3597-1429974338532-1316066106",testFile, hashFile, 10,function(err, result) {
+            hashReader.seek("1-8DJP-3597-1429974338532-1316066106",testFile, 10,function(err, result) {
                 if (err) {
                     log.error(err);
                     return done();
